@@ -12,7 +12,12 @@ and open the template in the editor.
     <body>
         <?php
         // put your code here
-         echo "Hello, world! This is my first PHP project!";
+         echo "Hello, world! This is my first PHP project for Rhino Enterprise!";
         ?>
+        
+        <form action="test_php/test_file.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="csv_file" />
+            <input type="submit" value="Upload" />
+        </form>
     </body>
 </html>
