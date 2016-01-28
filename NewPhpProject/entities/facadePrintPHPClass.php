@@ -20,4 +20,12 @@ class facadePrintPHPClass {
     public function printFacade($description, $value){
         echo "<b> $description </b> $value <br/> ";
     }
+    
+    public function printFacadeTable( $value ){
+        echo "<td> $value </td> ";
+    }
+    
+    public function printFacadeTableRaw($value){
+        echo " $value ";
+    }
 }

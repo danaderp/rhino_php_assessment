@@ -85,7 +85,7 @@ class contactPHPClass {
     }
 
     function __construct() {
-       echo'this is a construction <br/>';
+       #echo'this is a construction <br/>';
     }
     
     #Validating Functions
@@ -134,7 +134,8 @@ class contactPHPClass {
                     //Setting the phone numbers
                     self::setPhone1($phone1_);
                 } else {
-                    echo "<b> Telephone number(s) not valid 1 </b> $phone1_ <br/> ";
+                    self::setPhone1('not valid');
+                    #echo "<b> Telephone number(s) not valid 1 </b> $phone1_ <br/> ";
                 }
 
                 if (preg_match($phone_regular, $phone2_)) {
@@ -142,7 +143,8 @@ class contactPHPClass {
                     //Setting the phone numbers
                     self::setPhone2($phone2_);
                 } else {
-                    echo "<b> Telephone number(s) not valid 2 </b> $phone2_ <br/> ";
+                    self::setPhone2('not valid');
+                    #echo "<b> Telephone number(s) not valid 2 </b> $phone2_ <br/> ";
                 }
             } else {
                 $phone_ = preg_replace("/[^0-9]/", '', $phone);
@@ -154,7 +156,8 @@ class contactPHPClass {
                     //Setting the phone numbers
                     self::setPhone1($phone_r);
                 } else {
-                    echo "<b> Telephone number(s) not valid </b> $phone_r <br/> ";
+                    self::setPhone1('not valid');
+                    #echo "<b> Telephone number(s) not valid </b> $phone_r <br/> ";
                 }
             }
         }
@@ -175,13 +178,15 @@ class contactPHPClass {
                 // $regex is valid
                 self::setEmail1($email1);
             } else {
-                echo "<b> E-mail not valid </b> $email1 <br/> ";
+                self::setEmail1('not valid');
+                #echo "<b> E-mail not valid </b> $email1 <br/> ";
             }
             
             if( preg_match($regex, $email2_)  ) {
                 self::setEmail2($email2_);
             }else{
-                echo "<b> E-mail not valid </b> $email2_ <br/> ";
+                self::setEmail2('not valid');
+                #echo "<b> E-mail not valid </b> $email2_ <br/> ";
             }
             
         } else {
@@ -189,7 +194,8 @@ class contactPHPClass {
                 // $regex is valid
                 self::setEmail1($email_);
             } else {
-                echo "<b> E-mail not valid </b> $email_ <br/> ";
+                self::setEmail1('not valid');
+                #echo "<b> E-mail not valid </b> $email_ <br/> ";
             }
         }
     }
