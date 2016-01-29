@@ -27,7 +27,6 @@
 				<ul class="links">
 					<li><a href="../index.html">Home</a></li>
 					<li><a href="#">Information File</a></li>
-					<li><a href="elements.html">Elements</a></li>
 				</ul>
 			</nav>
 
