@@ -41,6 +41,16 @@
                                 ?>
                             </p>
                         </header>
+                        
+                        <?php
+                        #Function for handling extension CSV exception
+                        function checkCSV() {
+                            if ($_FILES['file_fls']['type'] !== "text/csv") {
+                                throw new Exception("This file extension is not allowed <br/> <a href=\"send_file.php\">Send File</a>");
+                            }
+                            return true;
+                        }
+                        ?>
 
                         <!-- Text -->
                         <section>
@@ -72,9 +82,11 @@
                                         $filename_ = $_FILES['file_fls']['tmp_name'];
                                         $destination_ = 'files/' . $_FILES['file_fls']['name'];
                                         $objPrint = new facadePrintPHPClass();
-
-                                        #CSV Validation
-                                        if ($_FILES['file_fls']['type'] == "text/csv") {
+ 
+                                        #if ($_FILES['file_fls']['type'] == "text/csv") {
+                                        try{
+                                            #CSV Validation
+                                            checkCSV();
                                             move_uploaded_file($filename_, $destination_);
                                             #echo 'Uploaded File <br>';
                                             $file = file($destination_);
@@ -125,8 +137,10 @@
                                                 #End Row
                                                 $objPrint->printFacadeTableRaw('</tr>');
                                             }
-                                        } else {
-                                            die("This file extension is not allowed <br/> <a href=\"send_file.php\">Send File</a>");
+                                        } 
+                                        catch (Exception $e ) {
+                                            echo 'Message: ' .$e->getMessage();
+                                            #die("This file extension is not allowed <br/> <a href=\"send_file.php\">Send File</a>");
                                         }
                                         ?>
                                     </tbody>
